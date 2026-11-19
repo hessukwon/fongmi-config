@@ -6,7 +6,7 @@
 
 ## 更换上游
 
-编辑仓库根目录的 `upstream.txt`，只写一个完整的上游配置 URL，然后提交。当前候选地址为饭太硬的 `.net/tv` 地址；Actions 会按 FongMi/OkHttp 的请求方式获取并检查响应。
+编辑仓库根目录的 `upstream.txt`，只写一个完整的上游配置 URL，然后提交。当前上游为 Larry 自维护的 FongMi 单仓 JSON：`https://raw.githubusercontent.com/larry-biu/tvbox-config/main/fongmi.json`。同步脚本会检查它是否为配置 JSON，再发布到 Pages。此配置中的 spider JAR、扩展 JSON 和直播列表仍由电视直接从该仓库获取；请先在一台电视验证导入和播放。
 
 同步任务每 6 小时运行一次，也可以在仓库的 **Actions → Sync and publish FongMi config → Run workflow** 手动运行。成功后 Actions 会部署最新配置；上游请求失败或返回不符合预期的导航页时，任务会失败并保留 Pages 上上一次成功发布的配置。
 
