@@ -60,7 +60,10 @@ def main() -> None:
     else:
         # Some Chinese config servers serve JSON in GBK/GB18030 without a charset.
         try:
-            text = raw.decode(charset or "utf-8-sig")
+            if raw.startswith((b"\xff\xfe", b"\xfe\xff")):
+                text = raw.decode("utf-16")
+            else:
+                text = raw.decode(charset or "utf-8-sig")
         except (LookupError, UnicodeDecodeError):
             try:
                 text = raw.decode("gb18030")
@@ -86,10 +89,6 @@ def main() -> None:
     OUTPUT_FILE.write_text(output, encoding="utf-8")
     print(f"Validated config: HTTP {status}; final URL {final_url}; {len(raw)} bytes")
     print(f"Wrote {OUTPUT_FILE.relative_to(ROOT)}")
-
-
-if __name__ == "__main__":
-    main()
 
 
 if __name__ == "__main__":
