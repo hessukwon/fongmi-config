@@ -1,1 +1,1 @@
-http://home.jundie.top:81/top98.json
+https://gitlab.com/gao777520/tvbox-config/raw/main/tvbox.json
