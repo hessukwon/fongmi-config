@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/larry-biu/tvbox-config/main/fongmi.json
+https://raw.githubusercontent.com/TVboxorg/TVbox/main/dist/official.json
